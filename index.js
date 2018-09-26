@@ -1,10 +1,5 @@
-const express = require('express');
+const server = require('./api/app')
 
-const server = express();
+const PORT = process.env.PORT || 3000
 
-server.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'status OK'
-  })
-})
-server.listen(3000, () => console.log('Express is listenning on port 3000'));
+server.listen(PORT, () => console.log(`Express is listenning on port ${PORT}`));
