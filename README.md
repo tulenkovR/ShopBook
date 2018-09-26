@@ -1,3 +1,7 @@
-# ShopBook
-npm install
-npm run dev
+# ShopBooks
+
+## Start application:
+
+### npm install
+
+### npm run dev
