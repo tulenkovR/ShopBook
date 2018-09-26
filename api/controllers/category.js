@@ -1,7 +1,9 @@
 const Category = require('../models/Category');
 
 module.exports.getAll = (req, res) => {
-
+  res.json({
+    message: 'Test'
+  })
 };
 
 module.exports.getById = (req, res) => {
