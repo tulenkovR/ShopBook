@@ -1,3 +1,5 @@
+const Category = require('../models/Category');
+
 module.exports.getAll = (req, res) => {
 
 };
