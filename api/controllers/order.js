@@ -16,7 +16,9 @@ module.exports.getAll = async (req, res) => {
     if (!query.date) {
       query.date = {}
     }
-    query.date.$lte = req.query.end
+    query.date = {
+      $lte: req.query.end
+    }
   }
 
   if (req.query.order) {
@@ -34,8 +36,8 @@ module.exports.getAll = async (req, res) => {
   } catch (e) {
     error(res, e);
   }
-
 };
+
 module.exports.create = async (req, res) => {
   try {
     const lastOrder = Order.findOne({
