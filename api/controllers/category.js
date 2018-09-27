@@ -39,9 +39,36 @@ module.exports.delete = async (req, res) => {
 };
 
 module.exports.create = async (req, res) => {
-
+  const category = new Category({
+    name: req.body.name,
+    imageSrc: req.file ? req.file.path : '',
+    user: req.user.id
+  })
+  try {
+    await category.save();
+    res.status(201).json(category);
+  } catch (e) {
+    error(res, e);
+  }
 };
 
 module.exports.update = async (req, res) => {
-
+  const updated = {
+    name: req.body.name
+  }
+  if (req.file) {
+    updated.imageSrc = req.file.path
+  }
+  try {
+    const category = await Category.findOneAndUpdate({
+      _id: req.params.id
+    }, {
+      $set: updated
+    }, {
+      new: true
+    });
+    res.status(200).json(category);
+  } catch (e) {
+    error(res, e);
+  }
 };
