@@ -62,3 +62,4 @@ typings/
 
 /config/key.js
 /uploads
+/client/src/theme/*
